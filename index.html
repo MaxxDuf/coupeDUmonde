@@ -233,71 +233,86 @@ body{
   overflow:hidden;
 }
 .stadium.active{display:flex}
+.stadium-scroll{flex:1;overflow-y:auto;min-height:0}
 .stadium-top{
   display:flex;align-items:center;justify-content:space-between;
-  padding:14px 16px;background:#06190d;border-bottom:1px solid rgba(255,255,255,0.06);
-  flex-shrink:0;
+  padding:10px 14px;background:#06190d;border-bottom:1px solid rgba(255,255,255,0.06);
+  flex-shrink:0;position:sticky;top:0;z-index:5;
 }
 .stadium-top .exitbtn{
-  width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.08);
-  border:none;color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;
+  width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.08);
+  border:none;color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;
 }
-.stadium-top .phase-lbl{font-size:11px;color:#8fae9c;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.stadium-top .phase-lbl{font-size:10px;color:#8fae9c;text-transform:uppercase;letter-spacing:1px;font-weight:600}
 
 .scoreboard{
   display:flex;align-items:center;justify-content:center;gap:0;
-  padding:14px 12px 10px;background:#06190d;flex-shrink:0;
+  padding:10px 12px 8px;background:#06190d;flex-shrink:0;
 }
-.sb-team{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
-.sb-team .flag{font-size:30px}
-.sb-team .nm{font-size:12px;font-weight:700;color:#e8f3ec;text-align:center;letter-spacing:0.3px}
-.sb-mid{padding:0 18px;text-align:center}
-.sb-score{font-family:'Bebas Neue',sans-serif;font-size:46px;letter-spacing:2px;color:#fff;line-height:1}
+.sb-team{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px}
+.sb-team .flag{font-size:20px}
+.sb-team .nm{font-size:10.5px;font-weight:700;color:#e8f3ec;text-align:center;letter-spacing:0.2px}
+.sb-mid{padding:0 14px;text-align:center}
+.sb-score{font-family:'Bebas Neue',sans-serif;font-size:30px;letter-spacing:1.5px;color:#fff;line-height:1}
 .sb-clock{
-  font-family:'Bebas Neue',sans-serif;font-size:17px;color:var(--gold);letter-spacing:1px;margin-top:2px;
-  display:flex;align-items:center;gap:6px;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:13px;color:var(--gold);letter-spacing:1px;margin-top:1px;
+  display:flex;align-items:center;gap:5px;justify-content:center;
 }
-.sb-clock .dot{width:7px;height:7px;border-radius:50%;background:var(--red);animation:pulse 1.2s infinite}
+.sb-clock .dot{width:5px;height:5px;border-radius:50%;background:var(--red);animation:pulse 1.2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.25}}
 
 .pitch-wrap{
-  flex:1;position:relative;display:flex;align-items:center;justify-content:center;
-  padding:14px;min-height:0;
+  position:relative;display:flex;align-items:center;justify-content:center;
+  padding:8px 14px;flex-shrink:0;
 }
 .pitch{
-  position:relative;width:100%;max-width:520px;aspect-ratio:16/10;
+  position:relative;width:100%;max-width:380px;aspect-ratio:16/9;
   background:
-    repeating-linear-gradient(90deg, #1e8a42 0, #1e8a42 40px, #1c7f3d 40px, #1c7f3d 80px);
-  border-radius:16px;overflow:hidden;
-  box-shadow:0 12px 40px rgba(0,0,0,0.5), inset 0 0 0 3px rgba(255,255,255,0.85);
+    repeating-linear-gradient(90deg, #1e8a42 0, #1e8a42 32px, #1c7f3d 32px, #1c7f3d 64px);
+  border-radius:10px;overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,0.45), inset 0 0 0 2px rgba(255,255,255,0.85);
 }
 .pitch svg{position:absolute;inset:0;width:100%;height:100%}
 .pitch-zone-overlay{position:absolute;inset:0;display:flex;pointer-events:none}
-.pz{flex:1;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px}
-.pz span{font-size:9px;font-weight:700;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.5px;background:rgba(0,0,0,0.25);padding:2px 6px;border-radius:4px}
+.pz{flex:1;display:flex;align-items:flex-end;justify-content:center;padding-bottom:4px}
+.pz span{font-size:8px;font-weight:700;color:rgba(255,255,255,0.55);text-transform:uppercase;letter-spacing:0.4px;background:rgba(0,0,0,0.25);padding:1px 5px;border-radius:3px}
 .pz.locked{background:rgba(0,0,0,0.38)}
 .pz.locked span{color:rgba(255,255,255,0.85)}
 
-.controls-area{flex-shrink:0;padding:14px 16px 22px;background:#06190d;border-top:1px solid rgba(255,255,255,0.06)}
-.goal-buttons{display:flex;gap:10px;margin-bottom:10px}
+.controls-area{flex-shrink:0;padding:10px 14px 16px;background:#06190d;border-top:1px solid rgba(255,255,255,0.06);position:sticky;bottom:0;z-index:5}
+.goal-buttons{display:flex;gap:8px;margin-bottom:8px}
 .goal-btn{
-  flex:1;padding:15px 8px;border-radius:14px;border:none;cursor:pointer;
-  font-size:13px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:4px;
+  flex:1;padding:10px 6px;border-radius:10px;border:none;cursor:pointer;
+  font-size:11.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px;
   transition:.12s;color:#04220f;
 }
-.goal-btn .gico{font-size:20px}
+.goal-btn .gico{font-size:15px}
 .goal-btn.home{background:linear-gradient(135deg,#7cc0ff,#4d9fff);color:#04203f}
 .goal-btn.away{background:linear-gradient(135deg,#f2c14e,#d89a2e);color:#1a1304}
 .goal-btn:active{transform:scale(0.95)}
-.stadium-actions{display:flex;gap:8px}
-.stadium-actions .btn{padding:11px 10px;font-size:12.5px}
+.stadium-actions{display:flex;gap:6px}
+.stadium-actions .btn{padding:8px 8px;font-size:11px}
 
 .lineup-toggle{
-  display:flex;align-items:center;justify-content:center;gap:6px;
-  font-size:11.5px;color:#8fae9c;padding:8px 0 2px;cursor:pointer;font-weight:600;
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  font-size:10.5px;color:#8fae9c;padding:4px 0;cursor:pointer;font-weight:600;
 }
 
+/* ---------- live stats panel ---------- */
+.live-stats-section{padding:0 14px 4px}
+.live-stats-title{font-size:9.5px;color:#7c9788;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;margin-bottom:6px;text-align:center}
+.live-stat-row{margin-bottom:6px}
+.live-stat-row .nums{display:flex;justify-content:space-between;font-size:10.5px;margin-bottom:2px}
+.live-stat-row .nums .l{color:#7c9788}
+.live-stat-row .nums b{color:#e8f3ec;font-size:11px}
+.live-stat-row .nums b.dropped{color:var(--red)}
+.live-bar{display:flex;height:4px;border-radius:3px;overflow:hidden;background:rgba(255,255,255,0.06)}
+.live-bar .h{background:linear-gradient(90deg,#7cc0ff,var(--blue))}
+.live-bar .a{background:linear-gradient(90deg,var(--gold-deep),var(--gold))}
+.live-bar .gapx{width:2px;background:#06190d}
+
 /* whistle flash */
+
 .whistle-flash{
   position:fixed;inset:0;z-index:1100;background:rgba(255,255,255,0.85);
   display:none;align-items:center;justify-content:center;pointer-events:none;
@@ -321,14 +336,14 @@ body{
 
 /* ---------- lineup ---------- */
 .lineup-panel{
-  background:#06190d;flex-shrink:0;max-height:0;overflow:hidden;transition:max-height .3s ease;
+  background:#06190d;flex-shrink:0;display:none;
 }
-.lineup-panel.open{max-height:600px;overflow-y:auto}
-.lineup-inner{padding:14px 16px}
-.lineup-team-switch{display:flex;gap:8px;margin-bottom:12px}
+.lineup-panel.open{display:block}
+.lineup-inner{padding:8px 14px 14px}
+.lineup-team-switch{display:flex;gap:6px;margin-bottom:8px}
 .lineup-team-switch button{
-  flex:1;padding:9px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);
-  background:rgba(255,255,255,0.04);color:#8fae9c;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;
+  flex:1;padding:6px;border-radius:8px;border:1px solid rgba(255,255,255,0.1);
+  background:rgba(255,255,255,0.04);color:#8fae9c;font-size:10.5px;font-weight:600;cursor:pointer;font-family:inherit;
 }
 .lineup-team-switch button.active{background:rgba(242,193,78,0.15);border-color:var(--gold);color:var(--gold)}
 .player-row{
@@ -351,54 +366,110 @@ body{
 .player-row.sent-off{opacity:0.4}
 .player-row.sent-off .pname{text-decoration:line-through}
 
-.lineup-hint{display:flex;align-items:center;gap:6px;justify-content:center;font-size:11px;color:#7c9788;padding-top:10px}
+.lineup-hint{display:flex;align-items:center;gap:4px;justify-content:center;font-size:9.5px;color:#7c9788;padding-top:6px}
 .mini-pitch{
-  position:relative;width:100%;aspect-ratio:16/10;border-radius:12px;overflow:hidden;
-  background:repeating-linear-gradient(90deg,#1e8a42 0,#1e8a42 30px,#1c7f3d 30px,#1c7f3d 60px);
+  position:relative;width:100%;max-width:340px;margin:0 auto;aspect-ratio:16/10;border-radius:10px;overflow:hidden;
+  background:repeating-linear-gradient(90deg,#1e8a42 0,#1e8a42 26px,#1c7f3d 26px,#1c7f3d 52px);
   box-shadow:inset 0 0 0 2px rgba(255,255,255,0.75);
 }
 .mini-pitch-lines{position:absolute;inset:0}
 .mini-pitch-lines svg{width:100%;height:100%}
 .pdot{
   position:absolute;transform:translate(-50%,-50%);
-  display:flex;flex-direction:column;align-items:center;gap:2px;
-  background:none;border:none;cursor:pointer;padding:2px;z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:1px;
+  background:none;border:none;cursor:pointer;padding:1px;z-index:2;
 }
 .pdot-circle{
-  width:22px;height:22px;border-radius:50%;background:rgba(8,20,12,0.78);
-  border:1.5px solid rgba(255,255,255,0.85);color:#fff;font-size:10px;font-weight:700;
+  width:18px;height:18px;border-radius:50%;background:rgba(8,20,12,0.78);
+  border:1.2px solid rgba(255,255,255,0.85);color:#fff;font-size:8px;font-weight:700;
   display:flex;align-items:center;justify-content:center;
+  background-size:cover;background-position:center top;
+  overflow:hidden;
 }
+.pdot-circle.has-photo{background-color:#0a1410}
+.pdot-num-fallback{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
 .pdot-label{
-  font-size:8.5px;color:#fff;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,0.8);
-  white-space:nowrap;max-width:54px;overflow:hidden;text-overflow:ellipsis;
+  font-size:7px;color:#fff;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,0.8);
+  white-space:nowrap;max-width:44px;overflow:hidden;text-overflow:ellipsis;
 }
 .pdot.is-yellow .pdot-circle{border-color:var(--gold);box-shadow:0 0 0 2px rgba(242,193,78,0.35)}
 .pdot.is-red .pdot-circle{border-color:var(--red);box-shadow:0 0 0 2px rgba(255,92,92,0.35)}
 .pdot.off{opacity:0.45}
-.pdot-card{position:absolute;top:-3px;right:-3px;width:9px;height:12px;border-radius:2px;border:1px solid rgba(255,255,255,0.6)}
+.pdot-card{position:absolute;top:-2px;right:-2px;width:6px;height:9px;border-radius:1.5px;border:1px solid rgba(255,255,255,0.6)}
 .pdot-card.yellow{background:var(--gold)}
 .pdot-card.red{background:var(--red)}
+
+.subs-counter-bar{
+  display:flex;align-items:center;gap:5px;justify-content:center;
+  font-size:10.5px;color:#8fae9c;padding:4px 0 8px;
+}
+.subs-counter-bar b{color:#e8f3ec}
+.subs-counter{font-size:9.5px;color:#7c9788;display:block;margin-top:2px}
+
+.pdot.is-sub .pdot-circle{box-shadow:0 0 0 2px rgba(77,159,255,0.45)}
+.pdot.is-offpos .pdot-circle{box-shadow:0 0 0 2px rgba(255,92,92,0.5)}
+.pdot-sub-badge{
+  position:absolute;bottom:-2px;right:-3px;width:10px;height:10px;border-radius:50%;
+  background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:6px;color:#04203f;
+  border:1px solid rgba(255,255,255,0.5);
+}
+.pdot-sub-badge.warn{background:var(--red);color:#350707}
+.sub-history{padding:8px 2px 0;display:flex;flex-direction:column;gap:3px}
+.sub-history-row{font-size:10px;color:#9fc2ad;display:flex;align-items:center;gap:5px}
+.sub-history-row.warn{color:#ffb4b4}
+.sub-history-row .arrow{color:#5a7d68}
+.offpos-tag{font-size:8.5px;color:var(--red);background:rgba(255,92,92,0.15);padding:1px 5px;border-radius:8px;font-weight:700;text-transform:uppercase}
+.sub-section-lbl{font-size:9.5px;color:#e0a23e;text-transform:uppercase;letter-spacing:0.4px;padding:8px 2px 2px;font-weight:600;display:flex;align-items:center;gap:4px}
+.badge-sub-in{font-size:9px;color:var(--blue);background:rgba(77,159,255,0.12);padding:2px 6px;border-radius:10px;font-weight:700;text-transform:uppercase;margin-left:4px;vertical-align:middle}
+
+.card-pop-btn.sub{color:var(--blue);border-color:rgba(77,159,255,0.3);background:rgba(77,159,255,0.07)}
+.card-pop-btn.sub-option.off-position{border-color:rgba(255,92,92,0.25);background:rgba(255,92,92,0.05)}
+.sub-pos-badge.warn{background:rgba(255,92,92,0.18);color:var(--red)}
+.sub-tag.warn{color:var(--red)}
+.sub-list{max-height:280px;overflow-y:auto}
+.card-pop-btn.sub-option{justify-content:flex-start}
+.sub-pos-badge{
+  width:24px;height:24px;border-radius:6px;background:rgba(255,255,255,0.08);
+  display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#cfe8da;flex-shrink:0;
+}
+.sub-info{flex:1;display:flex;flex-direction:column;align-items:flex-start;gap:1px}
+.sub-name{font-size:13px;font-weight:600;color:#fff}
+.sub-tag{font-size:10px;color:#7c9788}
+.sub-delta{font-size:13px;font-weight:700;color:#7c9788;flex-shrink:0}
+.sub-delta.pos{color:var(--green)}
+.sub-delta.neg{color:var(--red)}
+.sub-empty{font-size:12px;color:#7c9788;text-align:center;padding:16px 0}
 
 .card-pop-backdrop{
   position:fixed;inset:0;z-index:1200;background:rgba(0,0,0,0.55);
   display:flex;align-items:flex-end;justify-content:center;
 }
 .card-pop{
-  width:100%;max-width:480px;background:#101a13;border-radius:18px 18px 0 0;
-  padding:18px 18px 26px;animation:popUp .22s ease;
+  width:100%;max-width:420px;background:#101a13;border-radius:16px 16px 0 0;
+  padding:16px 16px 22px;animation:popUp .22s ease;
 }
 @keyframes popUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.card-pop-title{font-size:15px;font-weight:700;color:#fff}
-.card-pop-sub{font-size:12px;color:#8fae9c;margin-bottom:14px}
-.card-pop-actions{display:flex;flex-direction:column;gap:8px}
+.card-pop-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.card-pop-header-text{flex:1;min-width:0}
+.card-pop-header-text .card-pop-sub{margin-bottom:0}
+.pop-photo{
+  width:46px;height:46px;border-radius:50%;flex-shrink:0;
+  background:rgba(255,255,255,0.06);border:1.5px solid rgba(255,255,255,0.18);
+  display:flex;align-items:center;justify-content:center;
+  background-size:cover;background-position:center top;overflow:hidden;
+}
+.pop-photo.has-photo{background-color:#0a1410;border-color:rgba(255,255,255,0.3)}
+.pop-photo-num{font-family:'Bebas Neue',sans-serif;font-size:18px;color:#cfe8da;letter-spacing:0.5px}
+.card-pop-title{font-size:14px;font-weight:700;color:#fff}
+.card-pop-sub{font-size:11px;color:#8fae9c;margin-bottom:12px}
+.card-pop-actions{display:flex;flex-direction:column;gap:7px}
 .card-pop-btn{
-  display:flex;align-items:center;gap:10px;width:100%;padding:13px 14px;border-radius:12px;
+  display:flex;align-items:center;gap:9px;width:100%;padding:11px 13px;border-radius:11px;
   border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.04);color:#fff;
-  font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;
+  font-size:12.5px;font-weight:600;cursor:pointer;font-family:inherit;
 }
 .card-pop-btn.clear{color:#8fae9c}
-.mini-card{display:inline-block;width:14px;height:19px;border-radius:2px}
+.mini-card{display:inline-block;width:12px;height:16px;border-radius:2px}
 .mini-card.yellow{background:var(--gold)}
 .mini-card.red{background:var(--red)}
 
@@ -545,6 +616,76 @@ const LINEUPS = {
   "Indonésie": [["Maarten Paes","G"],["Sandy Walsh","D"],["Jay Idzes","D"],["Justin Hubner","D"],["Calvin Verdonk","D"],["Marc Klok","M"],["Thom Haye","M"],["Ivar Jenner","M"],["Ragnar Oratmangoen","A"],["Rafael Struick","A"],["Ole Romeny","A"]],
 };
 
+// Bancs de remplaçants reels (joueurs connus, postes coherents avec la compo titulaire)
+// delta: bonus/malus tactique relatif a un titulaire moyen du meme poste (-2 prudent/defensif a +2 percutant/offensif)
+const BENCH = {
+  "France": [
+    ["Lloris","G",-1],["Chevalier","G",0],
+    ["Digne","D",-1],["Konaté","D",0],["L. Hernandez","D",-1],
+    ["Kanté","M",0],["Koné","M",-1],["Zaïre-Emery","M",1],
+    ["Barcola","A",1],["Cherki","A",1],["Thuram","A",0],
+  ],
+  "Brésil": [
+    ["Ederson","G",0],["Weverton","G",-2],
+    ["Alex Sandro","D",-1],["Militão","D",0],["Danilo","D",-1],
+    ["Paquetá","M",1],["Fabinho","M",-1],
+    ["Neymar","A",2],["Estêvão","A",1],["Rodrygo","A",0],
+  ],
+  "Angleterre": [
+    ["Henderson","G",-1],["Trafford","G",0],
+    ["Walker","D",-1],["Gomez","D",0],["Trippier","D",-1],
+    ["Henderson","M",-1],["Mainoo","M",1],["Gallagher","M",0],
+    ["Foden","A",1],["Watkins","A",0],["Madueke","A",0],
+  ],
+  "Espagne": [
+    ["Raya","G",0],["Remiro","G",-1],
+    ["Le Normand","D",0],["Vivian","D",-1],["Grimaldo","D",0],
+    ["Merino","M",0],["Zubimendi","M",-1],["Gavi","M",1],
+    ["Ferran Torres","A",0],["Morata","A",0],["Pino","A",1],
+  ],
+  "Allemagne": [
+    ["Ter Stegen","G",0],["Baumann","G",-1],
+    ["Rüdiger","D",1],["Hummels","D",-1],["Mittelstädt","D",0],
+    ["Andrich","M",-1],["Gündogan","M",1],["Groß","M",0],
+    ["Füllkrug","A",0],["Adeyemi","A",1],["Woltemade","A",0],
+  ],
+  "Argentine": [
+    ["Rulli","G",0],["Armani","G",-1],
+    ["Pezzella","D",-1],["Lisandro Martínez","D",1],["Acuña","D",0],
+    ["De Paul","M",0],["Enzo Fernández","M",1],["Palacios","M",0],
+    ["Lautaro Martínez","A",1],["Julián Álvarez","A",1],["Nico González","A",0],
+  ],
+  "Portugal": [
+    ["José Sá","G",-1],["Rui Patrício","G",-1],
+    ["Pepe","D",0],["Diogo Dalot","D",0],["António Silva","D",1],
+    ["Otávio","M",0],["Palhinha","M",0],["Rúben Neves","M",-1],
+    ["Rafael Leão","A",1],["Gonçalo Ramos","A",1],["Pedro Neto","A",0],
+  ],
+};
+
+const FIRST_NAMES_BENCH_NOTE = "Pour les selections sans banc detaille, des remplacants generiques sont generes avec une variation tactique coherente.";
+
+function generateBenchFor(team, seed){
+  let s = seed+777;
+  const rand = ()=>{ s = (s*9301+49297)%233280; return s/233280; };
+  const postesNeeded = ["G","G","D","D","D","M","M","A","A","A"];
+  const bench = [];
+  postesNeeded.forEach((pos,i)=>{
+    const fn = FIRST_NAMES[Math.floor(rand()*FIRST_NAMES.length)];
+    const ln = LAST_NAMES[Math.floor(rand()*LAST_NAMES.length)];
+    const delta = Math.round((rand()*3-1.5)*10)/10; // entre -1.5 et +1.5
+    bench.push([`${ln}`, pos, delta]);
+  });
+  return bench;
+}
+
+function getBenchFor(team, seed){
+  const real = BENCH[team.name];
+  if(real) return real;
+  return generateBenchFor(team, seed);
+}
+
+// positions en % (x: 0=gauche/propre but, 100=droite/but adverse ; y: 0=haut, 100=bas)
 const FORMATION_SLOTS = [
   {pos:"G", x:6,  y:50},
   {pos:"D", x:20, y:15},
@@ -573,6 +714,8 @@ function genLineup(team, seed){
         y: slot.y,
         yellow: 0,
         red: false,
+        statDelta: 0,
+        subbedIn: false,
       };
     });
   }
@@ -593,6 +736,8 @@ function genLineup(team, seed){
       y: slot.y,
       yellow: 0,
       red: false,
+      statDelta: 0,
+      subbedIn: false,
     });
   }
   return players;
@@ -624,29 +769,69 @@ function shuffle(arr){
   return a;
 }
 
-function getCardImpact(team, lineup){
-  // chaque carton jaune = -0.3 sur stats offensives/defensives, carton rouge actif = -1.5 (un joueur en moins)
-  let yellowPenalty = 0;
-  let redPenalty = 0;
-  lineup.forEach(p=>{
-    if(p.yellow>0) yellowPenalty += p.yellow*0.3;
-    if(p.red) redPenalty += 1.6;
-  });
-  return Math.min(4, yellowPenalty + redPenalty);
-}
+// Impact des cartons par poste touche specifiquement les stats liees a ce poste.
+// jaune = -1 sur les stats du poste concerne (le joueur est sur ses gardes, prend moins de risques)
+// rouge = -1 supplementaire sur ces memes stats + malus global d'equipe (un joueur en moins sur le terrain)
+const CARD_STAT_MAP = {
+  G: ['gardien','arret'],
+  D: ['arret','vitesse'],
+  M: ['dribble','vitesse'],
+  A: ['tir','dribble'],
+};
+const YELLOW_PENALTY = 1;
+const RED_EXTRA_PENALTY = 1;
+const RED_TEAM_PENALTY = 0.6; // malus global supplementaire par rouge (joueur en moins sur le terrain)
+const OFF_POSITION_PENALTY = 3; // un joueur depannant hors de son poste fait chuter lourdement les stats du poste occupe
 
 function effectiveStats(team, lineup){
-  const impact = lineup ? getCardImpact(team, lineup) : 0;
-  const factor = Math.max(0.35, 1 - impact/10);
-  return {
-    rating: team.rating*factor,
-    dribble: team.dribble*factor,
-    arret: team.arret*factor,
-    tir: team.tir*factor,
-    gardien: team.gardien*factor,
-    vitesse: team.vitesse*factor,
+  const stats = {
+    rating: team.rating,
+    dribble: team.dribble,
+    arret: team.arret,
+    tir: team.tir,
+    gardien: team.gardien,
+    vitesse: team.vitesse,
   };
+  if(!lineup) return stats;
+
+  let redCount = 0;
+  let keeperSentOff = false;
+  let keeperOutOfPosition = false;
+  lineup.forEach(p=>{
+    const slotPos = p.playedPos || p.pos; // poste occupe sur le terrain (slot)
+    const keys = CARD_STAT_MAP[slotPos] || ['dribble'];
+    if(p.yellow>0){
+      keys.forEach(k=>{ stats[k] -= YELLOW_PENALTY * p.yellow; });
+    }
+    if(p.red){
+      redCount++;
+      if(slotPos==='G') keeperSentOff = true;
+      keys.forEach(k=>{ stats[k] -= RED_EXTRA_PENALTY; });
+    }
+    if(p.statDelta){
+      // le delta tactique du joueur s'applique sur les stats de son poste reel
+      const realKeys = CARD_STAT_MAP[p.pos] || ['dribble'];
+      realKeys.forEach(k=>{ stats[k] += p.statDelta; });
+    }
+    if(p.offPosition){
+      // joueur depannant hors de son poste habituel : grosse penalite sur les stats du poste occupe
+      if(slotPos==='G') keeperOutOfPosition = true;
+      else keys.forEach(k=>{ stats[k] -= OFF_POSITION_PENALTY; });
+    }
+  });
+  if(redCount>0){
+    const teamFactor = redCount * RED_TEAM_PENALTY;
+    Object.keys(stats).forEach(k=>{ stats[k] -= teamFactor; });
+  }
+  // gardien exclu OU joueur hors-poste dans les buts = plus de vrai gardien :
+  // le niveau gardien s'effondre presque a zero.
+  if(keeperSentOff || keeperOutOfPosition){
+    stats.gardien = 0.5;
+  }
+  Object.keys(stats).forEach(k=>{ stats[k] = Math.max(0.5, Math.min(10, stats[k])); });
+  return stats;
 }
+
 
 function simulateMatch(homeTeam, awayTeam, homeLineup, awayLineup){
   const h = effectiveStats(homeTeam, homeLineup);
@@ -789,6 +974,60 @@ function advanceKnockoutRound(){
 }
 
 // ===================== AUDIO =====================
+const MAX_SUBS = 5; // regle FIFA Coupe du Monde : 5 changements maximum par equipe
+
+// ===================== PHOTOS JOUEURS (Wikipedia, repli sur numéro si introuvable) =====================
+const playerPhotoCache = {}; // nom -> url | null (null = recherche faite, rien trouvé)
+
+function playerPhotoQuery(playerName, teamName){
+  // ameliore la recherche en ajoutant le pays + "footballeur" pour lever les ambiguites de nom
+  return `${playerName} ${teamName} footballeur`;
+}
+
+async function fetchPlayerPhoto(playerName, teamName){
+  const cacheKey = `${teamName}::${playerName}`;
+  if(cacheKey in playerPhotoCache) return playerPhotoCache[cacheKey];
+  try{
+    const q = encodeURIComponent(playerPhotoQuery(playerName, teamName));
+    const url = `https://fr.wikipedia.org/w/api.php?action=query&generator=search&gsrsearch=${q}&gsrlimit=1&prop=pageimages&piprop=thumbnail&pithumbsize=200&format=json&origin=*`;
+    const res = await fetch(url);
+    if(!res.ok) throw new Error('http error');
+    const data = await res.json();
+    const pages = data && data.query && data.query.pages;
+    if(!pages) { playerPhotoCache[cacheKey] = null; return null; }
+    const first = Object.values(pages)[0];
+    const thumb = first && first.thumbnail && first.thumbnail.source;
+    playerPhotoCache[cacheKey] = thumb || null;
+    return thumb || null;
+  }catch(e){
+    playerPhotoCache[cacheKey] = null;
+    return null;
+  }
+}
+
+function playerPhotoElementId(side, idx){
+  return `pphoto-${side}-${idx}`;
+}
+
+// lance la recherche de photo en arriere-plan et met a jour le DOM si trouvee, sans bloquer le rendu
+function lazyLoadPlayerPhoto(side, idx, playerName, teamName){
+  const elId = playerPhotoElementId(side, idx);
+  fetchPlayerPhoto(playerName, teamName).then(url=>{
+    if(!url) return;
+    const el = document.getElementById(elId);
+    if(!el) return; // le joueur a peut-etre change depuis (changement, re-render)
+    const img = new Image();
+    img.onload = ()=>{
+      el.style.backgroundImage = `url('${url}')`;
+      el.classList.add('has-photo');
+      const numSpan = el.querySelector('.pdot-num-fallback');
+      if(numSpan) numSpan.style.display = 'none';
+    };
+    img.onerror = ()=>{ /* echec chargement reel -> on garde le numero affiche */ };
+    img.src = url;
+  });
+}
+
 function ensureAudio(){
   if(!audioCtx){
     audioCtx = new (window.AudioContext||window.webkitAudioContext)();
@@ -900,6 +1139,10 @@ function openStadium(match, isKnockout){
     timerHandle: null,
     homeLineup: genLineup(match.home, match.home.name.length*7+1),
     awayLineup: genLineup(match.away, match.away.name.length*13+3),
+    homeBench: getBenchFor(match.home, match.home.name.length*7+1).map(b=>({name:b[0],pos:b[1],delta:b[2],used:false})),
+    awayBench: getBenchFor(match.away, match.away.name.length*13+3).map(b=>({name:b[0],pos:b[1],delta:b[2],used:false})),
+    homeSubsUsed: 0,
+    awaySubsUsed: 0,
     lineupOpen:true,
     lineupTeam:'home',
     finished:false,
@@ -998,51 +1241,57 @@ function renderStadium(){
     ? ({'R32':'Huitièmes de finale','R16':'Quarts de finale','SF':'Demi-finale','F':'Finale'})[state.knockoutRound]
     : `Groupe ${state.playerGroup.letter} · Journée ${state.currentMatchIndex+1}`;
 
-  const homeZones = getZoneCellsHTML(m.home);
-  const awayZones = getZoneCellsHTML(m.away);
-
   const html = `
     <div class="stadium-top">
       <button class="exitbtn" onclick="confirmExitStadium()" aria-label="Quitter"><i class="ti ti-x"></i></button>
       <div class="phase-lbl">${roundLabel}</div>
-      <div style="width:34px"></div>
+      <div style="width:28px"></div>
     </div>
-    <div class="scoreboard">
-      <div class="sb-team"><div class="flag">${m.home.flag}</div><div class="nm">${m.home.name}</div></div>
-      <div class="sb-mid">
-        <div class="sb-score">${ms.homeScore} - ${ms.awayScore}</div>
-        <div class="sb-clock"><span class="dot" style="${ms.finished?'display:none':''}"></span><span id="sbClockTxt">${fmtClock(ms.totalSeconds-ms.elapsed)}</span></div>
+    <div class="stadium-scroll">
+      <div class="scoreboard">
+        <div class="sb-team"><div class="flag">${m.home.flag}</div><div class="nm">${m.home.name}</div></div>
+        <div class="sb-mid">
+          <div class="sb-score">${ms.homeScore} - ${ms.awayScore}</div>
+          <div class="sb-clock"><span class="dot" style="${ms.finished?'display:none':''}"></span><span id="sbClockTxt">${fmtClock(ms.totalSeconds-ms.elapsed)}</span></div>
+        </div>
+        <div class="sb-team"><div class="flag">${m.away.flag}</div><div class="nm">${m.away.name}</div></div>
       </div>
-      <div class="sb-team"><div class="flag">${m.away.flag}</div><div class="nm">${m.away.name}</div></div>
-    </div>
-    <div class="pitch-wrap">
-      <div class="pitch">
-        ${buildPitchSVG()}
-        <div class="pitch-zone-overlay">
-          <div class="pz ${m.home.zones>=1?'':'locked'}"><span>1</span></div>
-          <div class="pz ${m.home.zones>=2?'':'locked'}"><span>2</span></div>
-          <div class="pz ${m.home.zones>=3?'':'locked'}"><span>3</span></div>
+      <div class="pitch-wrap">
+        <div class="pitch">
+          ${buildPitchSVG()}
+          <div class="pitch-zone-overlay">
+            <div class="pz ${m.home.zones>=1?'':'locked'}"><span>1</span></div>
+            <div class="pz ${m.home.zones>=2?'':'locked'}"><span>2</span></div>
+            <div class="pz ${m.home.zones>=3?'':'locked'}"><span>3</span></div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="lineup-toggle" onclick="toggleLineup()">
-      <i class="ti ti-shirt-sport"></i> Compositions & cartons <i class="ti ti-chevron-${ms.lineupOpen?'up':'down'}"></i>
-    </div>
-    <div class="lineup-panel ${ms.lineupOpen?'open':''}">
-      <div class="lineup-inner">
-        <div class="lineup-team-switch">
-          <button class="${ms.lineupTeam==='home'?'active':''}" onclick="switchLineupTeam('home')">${m.home.flag} ${m.home.name}</button>
-          <button class="${ms.lineupTeam==='away'?'active':''}" onclick="switchLineupTeam('away')">${m.away.flag} ${m.away.name}</button>
+      <div class="live-stats-section">
+        <div class="live-stats-title">Stats en direct</div>
+        ${renderLiveStats()}
+      </div>
+      <div class="lineup-toggle" onclick="toggleLineup()">
+        <i class="ti ti-shirt-sport"></i> Compositions & cartons <i class="ti ti-chevron-${ms.lineupOpen?'up':'down'}"></i>
+      </div>
+      <div class="lineup-panel ${ms.lineupOpen?'open':''}">
+        <div class="lineup-inner">
+          <div class="lineup-team-switch">
+            <button class="${ms.lineupTeam==='home'?'active':''}" onclick="switchLineupTeam('home')">${m.home.flag} ${m.home.name}</button>
+            <button class="${ms.lineupTeam==='away'?'active':''}" onclick="switchLineupTeam('away')">${m.away.flag} ${m.away.name}</button>
+          </div>
+          <div class="subs-counter-bar">
+            <i class="ti ti-replace"></i> Changements : <b>${ms.lineupTeam==='home'?(ms.homeSubsUsed||0):(ms.awaySubsUsed||0)}/${MAX_SUBS}</b>
+          </div>
+          ${renderLineupPitch(ms.lineupTeam)}
+          <div class="lineup-hint"><i class="ti ti-hand-click"></i> Touche un joueur pour carton ou changement</div>
         </div>
-        ${renderLineupPitch(ms.lineupTeam)}
-        <div class="lineup-hint"><i class="ti ti-hand-click"></i> Touche un joueur pour lui donner un carton</div>
       </div>
     </div>
     <div id="cardPopoverLayer"></div>
     <div class="controls-area">
       <div class="goal-buttons">
-        <button class="goal-btn home" onclick="addGoal('home')"><span class="gico">⚽</span>But ${m.home.name}</button>
-        <button class="goal-btn away" onclick="addGoal('away')"><span class="gico">⚽</span>But ${m.away.name}</button>
+        <button class="goal-btn home" onclick="addGoal('home')"><span class="gico">⚽</span>${m.home.name}</button>
+        <button class="goal-btn away" onclick="addGoal('away')"><span class="gico">⚽</span>${m.away.name}</button>
       </div>
       <div class="stadium-actions">
         <button class="btn btn-ghost" onclick="removeGoal('home')"><i class="ti ti-minus"></i> ${m.home.name.slice(0,3)}</button>
@@ -1052,6 +1301,53 @@ function renderStadium(){
     </div>
   `;
   document.getElementById('stadium').innerHTML = html;
+  triggerLineupPhotoLoads(ms.lineupTeam);
+}
+
+function triggerLineupPhotoLoads(side){
+  if(!matchState) return;
+  const lineup = side==='home' ? matchState.homeLineup : matchState.awayLineup;
+  const teamName = (side==='home' ? matchState.match.home : matchState.match.away).name;
+  lineup.forEach((p, idx)=>{
+    const cacheKey = `${teamName}::${p.name}`;
+    if(cacheKey in playerPhotoCache) return; // deja en cache (trouve ou non), pas la peine de relancer
+    lazyLoadPlayerPhoto(side, idx, p.name, teamName);
+  });
+}
+
+function renderLiveStats(){
+  const ms = matchState;
+  const m = ms.match;
+  const h = effectiveStats(m.home, ms.homeLineup);
+  const a = effectiveStats(m.away, ms.awayLineup);
+  const baseH = m.home, baseA = m.away;
+  const rows = [
+    {label:'Vitesse', k:'vitesse'},
+    {label:'Puissance de tir', k:'tir'},
+    {label:'Dribble', k:'dribble'},
+    {label:'Défense / arrêts', k:'arret'},
+    {label:'Niveau gardien', k:'gardien'},
+  ];
+  return rows.map(r=>{
+    const hv = Math.round(h[r.k]*10)/10;
+    const av = Math.round(a[r.k]*10)/10;
+    const hDropped = hv < baseH[r.k];
+    const aDropped = av < baseA[r.k];
+    return `
+      <div class="live-stat-row">
+        <div class="nums">
+          <span class="l"><b class="${hDropped?'dropped':''}">${hv}</b></span>
+          <span class="l">${r.label}</span>
+          <span class="l"><b class="${aDropped?'dropped':''}">${av}</b></span>
+        </div>
+        <div class="live-bar">
+          <div class="h" style="flex:${Math.max(0.3,hv)}"></div>
+          <div class="gapx"></div>
+          <div class="a" style="flex:${Math.max(0.3,av)}"></div>
+        </div>
+      </div>
+    `;
+  }).join('');
 }
 
 function getZoneCellsHTML(team){
@@ -1060,26 +1356,77 @@ function getZoneCellsHTML(team){
 
 function renderLineupPitch(side){
   const lineup = side==='home' ? matchState.homeLineup : matchState.awayLineup;
+  const teamName = (side==='home' ? matchState.match.home : matchState.match.away).name;
   // l'equipe away attaque vers la gauche visuellement -> on miroir les x
   const mirror = side==='away';
   const dots = lineup.map((p,idx)=>{
     const x = mirror ? (100-p.x) : p.x;
     const y = p.y;
     const cardClass = p.red ? 'is-red' : (p.yellow>0 ? 'is-yellow' : '');
+    const photoId = playerPhotoElementId(side, idx);
+    const cachedUrl = playerPhotoCache[`${teamName}::${p.name}`];
+    const hasCachedPhoto = cachedUrl && cachedUrl!==null;
     return `
-      <button class="pdot ${cardClass} ${p.red?'off':''}" style="left:${x}%;top:${y}%" onclick="openCardPopover(event,'${side}',${idx})" aria-label="${p.first} ${p.name}">
-        <span class="pdot-circle">${p.num}</span>
+      <button class="pdot ${cardClass} ${p.subbedIn?'is-sub':''} ${p.offPosition?'is-offpos':''}" style="left:${x}%;top:${y}%" onclick="openCardPopover(event,'${side}',${idx})" aria-label="${p.first} ${p.name}">
+        <span class="pdot-circle ${hasCachedPhoto?'has-photo':''}" id="${photoId}" style="${hasCachedPhoto?`background-image:url('${cachedUrl}')`:''}">
+          <span class="pdot-num-fallback" style="${hasCachedPhoto?'display:none':''}">${p.num}</span>
+        </span>
         <span class="pdot-label">${p.name}</span>
+        ${p.offPosition?`<span class="pdot-sub-badge warn"><i class="ti ti-alert-triangle"></i></span>`:p.subbedIn?`<span class="pdot-sub-badge"><i class="ti ti-replace"></i></span>`:''}
         ${p.yellow>0?`<span class="pdot-card yellow"></span>`:''}
         ${p.red?`<span class="pdot-card red"></span>`:''}
       </button>`;
   }).join('');
+
+  const histKey = side==='home' ? 'homeSubHistory' : 'awaySubHistory';
+  const hist = matchState[histKey] || [];
+  const histHTML = hist.length ? `
+    <div class="sub-history">
+      ${hist.map(h=>`<div class="sub-history-row ${h.offPosition?'warn':''}">${h.offPosition?'<i class="ti ti-alert-triangle"></i>':'<i class="ti ti-replace"></i>'} ${h.in} <span class="arrow">←</span> ${h.out}${h.offPosition?' <span class="offpos-tag">hors poste</span>':''}</div>`).join('')}
+    </div>
+  ` : '';
+
   return `
     <div class="mini-pitch">
       <div class="mini-pitch-lines">${buildPitchSVG()}</div>
       ${dots}
     </div>
+    ${histHTML}
   `;
+}
+
+const POS_LABEL = {G:'Gardien', D:'Défenseur', M:'Milieu', A:'Attaquant'};
+
+function popoverPhotoHTML(side, p, photoElId){
+  const teamName = (side==='home' ? matchState.match.home : matchState.match.away).name;
+  const cachedUrl = playerPhotoCache[`${teamName}::${p.name}`];
+  const hasPhoto = cachedUrl && cachedUrl !== null;
+  return `
+    <span class="pop-photo ${hasPhoto?'has-photo':''}" id="${photoElId}" style="${hasPhoto?`background-image:url('${cachedUrl}')`:''}">
+      <span class="pop-photo-num" style="${hasPhoto?'display:none':''}">${p.num}</span>
+    </span>
+  `;
+}
+
+function loadPopoverPhotoIfNeeded(side, p, photoElId){
+  const teamName = (side==='home' ? matchState.match.home : matchState.match.away).name;
+  const cacheKey = `${teamName}::${p.name}`;
+  if(cacheKey in playerPhotoCache && playerPhotoCache[cacheKey]){
+    return; // deja en cache et trouvee, rien a faire (deja affichee)
+  }
+  fetchPlayerPhoto(p.name, teamName).then(url=>{
+    if(!url) return;
+    const el = document.getElementById(photoElId);
+    if(!el) return; // popover ferme entre temps
+    const img = new Image();
+    img.onload = ()=>{
+      el.style.backgroundImage = `url('${url}')`;
+      el.classList.add('has-photo');
+      const numSpan = el.querySelector('.pop-photo-num');
+      if(numSpan) numSpan.style.display = 'none';
+    };
+    img.src = url;
+  });
 }
 
 function openCardPopover(ev, side, idx){
@@ -1087,11 +1434,19 @@ function openCardPopover(ev, side, idx){
   const lineup = side==='home' ? matchState.homeLineup : matchState.awayLineup;
   const p = lineup[idx];
   const layer = document.getElementById('cardPopoverLayer');
+  const photoElId = `pop-photo-${side}-${idx}`;
+
+  const canSub = !p.red; // un joueur expulsé ne peut pas etre remplacé
   layer.innerHTML = `
     <div class="card-pop-backdrop" onclick="closeCardPopover()">
       <div class="card-pop" onclick="event.stopPropagation()">
-        <div class="card-pop-title">${p.num} · ${p.first} ${p.name}</div>
-        <div class="card-pop-sub">${p.pos==='G'?'Gardien':p.pos==='D'?'Défenseur':p.pos==='M'?'Milieu':'Attaquant'}${p.red?' · Exclu':p.yellow>0?' · 1 avertissement':''}</div>
+        <div class="card-pop-header">
+          ${popoverPhotoHTML(side, p, photoElId)}
+          <div class="card-pop-header-text">
+            <div class="card-pop-title">${p.num} · ${p.first} ${p.name}${p.subbedIn?' <span class="badge-sub-in">Entré en jeu</span>':''}</div>
+            <div class="card-pop-sub">${POS_LABEL[p.pos]||p.pos}${p.red?' · Exclu':p.yellow>0?' · 1 avertissement':''}</div>
+          </div>
+        </div>
         <div class="card-pop-actions">
           <button class="card-pop-btn yellow" onclick="cycleCard('${side}',${idx},'yellow');closeCardPopover()">
             <span class="mini-card yellow"></span> Carton jaune
@@ -1100,11 +1455,126 @@ function openCardPopover(ev, side, idx){
             <span class="mini-card red"></span> ${p.red?'Annuler le rouge':'Carton rouge'}
           </button>
           ${(p.yellow>0||p.red) ? `<button class="card-pop-btn clear" onclick="clearCards('${side}',${idx});closeCardPopover()"><i class="ti ti-eraser"></i> Effacer les cartons</button>` : ''}
+          ${canSub ? `<button class="card-pop-btn sub" onclick="openSubPopover('${side}',${idx})"><i class="ti ti-replace"></i> Faire un changement</button>` : ''}
         </div>
       </div>
     </div>
   `;
+  loadPopoverPhotoIfNeeded(side, p, photoElId);
 }
+
+function openSubPopover(side, idx){
+  const lineup = side==='home' ? matchState.homeLineup : matchState.awayLineup;
+  const bench = side==='home' ? matchState.homeBench : matchState.awayBench;
+  const usedKey = side==='home' ? 'homeSubsUsed' : 'awaySubsUsed';
+  const subsUsed = matchState[usedKey] || 0;
+  const out = lineup[idx];
+  const layer = document.getElementById('cardPopoverLayer');
+
+  if(subsUsed >= MAX_SUBS){
+    layer.innerHTML = `
+      <div class="card-pop-backdrop" onclick="closeCardPopover()">
+        <div class="card-pop" onclick="event.stopPropagation()">
+          <div class="card-pop-title">Changement impossible</div>
+          <div class="card-pop-sub">Limite de ${MAX_SUBS} changements atteinte pour cette équipe (règle FIFA)</div>
+          <button class="card-pop-btn clear" style="margin-top:8px" onclick="openCardPopoverFromIdx('${side}',${idx})"><i class="ti ti-arrow-left"></i> Retour</button>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  // on ne propose que des remplacants du meme poste (changement realiste poste pour poste)
+  const available = bench.map((b,bi)=>({...b, bi})).filter(b=>!b.used && b.pos===out.pos);
+  const otherAvailable = bench.map((b,bi)=>({...b, bi})).filter(b=>!b.used && b.pos!==out.pos);
+
+  function row(b, offPosition){
+    const sign = b.delta>0 ? '+' : '';
+    const tag = offPosition ? `Hors poste · ${POS_LABEL[b.pos]}` : (b.delta>=1 ? 'Option offensive' : b.delta<=-1 ? 'Option prudente' : 'Profil équilibré');
+    return `
+      <button class="card-pop-btn sub-option ${offPosition?'off-position':''}" onclick="makeSubstitution('${side}',${idx},${b.bi})">
+        <span class="sub-pos-badge ${offPosition?'warn':''}">${b.pos}</span>
+        <span class="sub-info"><span class="sub-name">${b.name}</span><span class="sub-tag ${offPosition?'warn':''}">${tag}</span></span>
+        <span class="sub-delta ${b.delta>0?'pos':b.delta<0?'neg':''}">${sign}${b.delta}</span>
+      </button>
+    `;
+  }
+
+  const rows = available.length ? available.map(b=>row(b,false)).join('')
+    : `<div class="sub-empty">Aucun remplaçant au poste ${POS_LABEL[out.pos]||out.pos} disponible</div>`;
+  const otherRows = otherAvailable.length ? `
+    <div class="sub-section-lbl"><i class="ti ti-alert-triangle"></i> Hors poste — fera chuter ${out.pos==='G'?'le niveau gardien':'des stats clés'}</div>
+    ${otherAvailable.map(b=>row(b,true)).join('')}
+  ` : '';
+
+  const subPhotoElId = `pop-photo-sub-${side}-${idx}`;
+  layer.innerHTML = `
+    <div class="card-pop-backdrop" onclick="closeCardPopover()">
+      <div class="card-pop" onclick="event.stopPropagation()">
+        <div class="card-pop-header">
+          ${popoverPhotoHTML(side, out, subPhotoElId)}
+          <div class="card-pop-header-text">
+            <div class="card-pop-title">Changement</div>
+            <div class="card-pop-sub">${out.name} sort <span class="subs-counter">${subsUsed}/${MAX_SUBS} changements utilisés</span></div>
+          </div>
+        </div>
+        <div class="card-pop-actions sub-list">
+          ${rows}
+          ${otherRows}
+        </div>
+        <button class="card-pop-btn clear" style="margin-top:8px" onclick="openCardPopoverFromIdx('${side}',${idx})"><i class="ti ti-arrow-left"></i> Retour</button>
+      </div>
+    </div>
+  `;
+  loadPopoverPhotoIfNeeded(side, out, subPhotoElId);
+}
+
+function openCardPopoverFromIdx(side, idx){
+  openCardPopover({stopPropagation(){}}, side, idx);
+}
+
+function makeSubstitution(side, idx, benchIdx){
+  const lineup = side==='home' ? matchState.homeLineup : matchState.awayLineup;
+  const bench = side==='home' ? matchState.homeBench : matchState.awayBench;
+  const usedKey = side==='home' ? 'homeSubsUsed' : 'awaySubsUsed';
+  if((matchState[usedKey]||0) >= MAX_SUBS) return;
+
+  const out = lineup[idx];
+  const incoming = bench[benchIdx];
+  if(!incoming || incoming.used) return;
+
+  const offPosition = incoming.pos !== out.pos;
+
+  incoming.used = true;
+  matchState[usedKey] = (matchState[usedKey]||0) + 1;
+  // le remplacant prend la place du sortant dans le XI (le terrain garde toujours 11 points)
+  // pos = poste reel du joueur (pour son delta) / playedPos = poste qu'il occupe sur le terrain (slot du sortant)
+  lineup[idx] = {
+    num: out.num,
+    name: incoming.name,
+    first: "",
+    pos: incoming.pos,
+    playedPos: out.pos,
+    x: out.x,
+    y: out.y,
+    yellow: 0,
+    red: false,
+    statDelta: incoming.delta,
+    subbedIn: true,
+    offPosition,
+    replaced: out.name,
+  };
+  // on garde une trace du changement pour l'historique affiche sous le terrain
+  const histKey = side==='home' ? 'homeSubHistory' : 'awaySubHistory';
+  if(!matchState[histKey]) matchState[histKey] = [];
+  matchState[histKey].push({ out: out.name, in: incoming.name, pos: incoming.pos, offPosition });
+
+  playWhistle('card');
+  flashMsg(offPosition ? `🔄 ${incoming.name} dépanne hors de son poste` : `🔄 ${incoming.name} remplace ${out.name}`);
+  closeCardPopover();
+  renderStadium();
+}
+
 function closeCardPopover(){
   document.getElementById('cardPopoverLayer').innerHTML = '';
 }
